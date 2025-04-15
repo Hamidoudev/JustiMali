@@ -11,7 +11,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/pvs")
+@RequestMapping("/{\n" +
+        "  \"id\": 0,\n" +
+        "  \"numero\": \"string\",\n" +
+        "  \"infraction\": \"string\",\n" +
+        "  \"datePV\": \"2025-04-15\",\n" +
+        "  \"procureur\": {\n" +
+        "    \"id\": 0,\n" +
+        "    \"nom\": \"string\",\n" +
+        "    \"prenom\": \"string\",\n" +
+        "    \"email\": \"string\",\n" +
+        "    \"telephone\": \"string\",\n" +
+        "    \"pvs\": [\n" +
+        "      \"string\"\n" +
+        "    ]\n" +
+        "  },")
 @RequiredArgsConstructor
 public class PvController {
     private final PvService pvService;

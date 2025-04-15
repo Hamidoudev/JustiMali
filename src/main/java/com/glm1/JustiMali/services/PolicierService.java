@@ -15,7 +15,7 @@ public class PolicierService {
     private final PolicierRepository policierRepository;
 
     @Transactional
-    public Policier createPolicier(Policier policier) {
+    public static Policier createPolicier(Policier policier) {
         return policierRepository.save(policier);
     }
 
