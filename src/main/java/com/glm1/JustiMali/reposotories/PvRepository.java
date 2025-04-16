@@ -7,7 +7,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface PVRepository extends JpaRepository<Pv, Long> {
+public interface PvRepository extends JpaRepository<Pv, Long> {
     List<Pv> findByCitoyenId(Long citoyenId);
     List<Pv> findByProcureurId(Long procureurId);
+    List<Pv> findByPolicierId(Long policierId);
 }
+

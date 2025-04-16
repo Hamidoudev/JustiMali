@@ -1,35 +1,34 @@
 package com.glm1.JustiMali.entities;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "demandes")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Demande {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Enumerated(EnumType.STRING)
-    private TypeDemande type; // CASIER, NATIONALITE, ACTE_NAISSANCE
+    private String titre;
+    private String description;
+    private String type;
+    private String status;
 
-    private LocalDate dateDemande;
+    private LocalDateTime dateCreation;
+    private LocalDateTime dateMiseAJour;
 
-    @Enumerated(EnumType.STRING)
-    private StatutDemande statut; // EN_COURS, APPROUVE, REJETE
-
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "citoyen_id")
     private Citoyen citoyen;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "maire_id")
     private Maire maire;
 }

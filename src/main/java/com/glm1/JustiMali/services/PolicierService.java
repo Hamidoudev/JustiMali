@@ -12,10 +12,10 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class PolicierService {
-    private final PolicierRepository policierRepository;
+    private static final PolicierRepository policierRepository = null;
 
     @Transactional
-    public static Policier createPolicier(Policier policier) {
+    public Policier createPolicier(Policier policier) {
         return policierRepository.save(policier);
     }
 

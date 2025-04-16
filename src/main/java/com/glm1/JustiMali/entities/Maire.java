@@ -17,11 +17,18 @@ public class Maire {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nom;
     private String prenom;
-    private String commune;
+    @ManyToOne(optional = true)
+    @JoinColumn(name = "commune_id", nullable = true)
+    private Commune commune;
+
+
 
     @OneToMany(mappedBy = "maire", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Demande> demandes = new ArrayList<>();
+
+    public String getEmail() {
+        return "";
+    }
 }

@@ -23,11 +23,19 @@ public class Citoyen {
     private String prenom;
     private LocalDate dateNaissance;
     private String lieuNaissance;
+    private String telephone;
     private String adresse;
+    private String email;
+
+    @ManyToOne
+    @JoinColumn(name = "commune_id")
+    private Commune commune;
 
     @OneToMany(mappedBy = "citoyen", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Demande> demandes = new ArrayList<>();
 
     @OneToMany(mappedBy = "citoyen", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Pv> pvs = new ArrayList<>();
+
+
 }

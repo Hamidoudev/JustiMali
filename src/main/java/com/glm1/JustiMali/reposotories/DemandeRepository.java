@@ -10,5 +10,6 @@ import java.util.List;
 @Repository
 public interface DemandeRepository extends JpaRepository<Demande, Long> {
     List<Demande> findByCitoyenId(Long citoyenId);
-    List<Demande> findByType(TypeDemande type);
+    List<Demande> findByMaireId(Long maireId);
+    List<Demande> findByStatusIgnoreCase(String status);
 }
